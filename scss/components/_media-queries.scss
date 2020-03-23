@@ -1,0 +1,78 @@
+/* ============================================= */
+/*              Media Queries                    */
+/* ============================================= */
+
+    .container {
+      @include mqmixin ($med-query-size) {
+        @include centerlayout;
+        max-width: 1400px;
+      }
+    }
+    
+    .centered {
+      @include mqmixin ($med-query-size) {
+        @include centerlayout;
+      };
+    }
+    
+    .row {
+      @include mqmixin ($med-query-size) {
+        flex-direction: row;
+      }
+    }
+    
+    [class^=col] {
+      @include mqmixin ($med-query-size) {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        align-items: center;
+      }
+    }
+    
+    [class^=col] + [class^=col] {
+      @include mqmixin ($med-query-size) {
+        margin-left: 10px;
+      }
+    }
+
+    @include mqmixin ($med-query-size) {
+      @for $i from 1 through 12 {
+        .col-#{$i} {
+            flex-basis: $i / 12 * 100%;
+        }
+      }
+    }
+    
+    .nav {
+      @include mqmixin ($med-query-size) {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+    
+    .nav-link {
+      @include mqmixin ($med-query-size) {
+        flex-basis: 100px;
+      }
+    }
+    
+    .btn {
+      @include mqmixin ($med-query-size) {
+        padding: 10px 30px;
+      }
+    }
+    
+    .btn + .btn {
+      @include mqmixin ($med-query-size) {
+        margin-left: 10px;
+      }
+    }
+    
+    .logo {
+      @include mqmixin ($med-query-size) {
+        margin-left: initial;
+        margin-right: initial;
+      }
+    }

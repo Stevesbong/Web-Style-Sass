@@ -1,0 +1,29 @@
+@mixin theme () {
+    @each $num, $color in $theme-color {
+        .theme.#{$num} {
+            background-color: $color;
+        }
+    }
+}
+
+@mixin centerlayout {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin btnhover($color, $lighteness: 15%) {
+    &:hover {
+        background-color: lighten($color, $lighteness)
+    }
+}
+
+@mixin transmixin ($prop: all, $time, $func: 'ease') {
+    transition: $prop $time $func;
+}
+
+@mixin mqmixin ($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
